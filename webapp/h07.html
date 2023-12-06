@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head><!-- -->
+		<meta charset="UTF-8">
+		<title>選擇多個檔案 上傳 enctype multipart</title>
+	</head>
+	<body>
+		<form action="W07" method="post" enctype="multipart/form-data">			
+			<input name="account" /><br />
+			<input type="file" name="upload" /><br />
+			<input type="file" name="upload" /><br />
+			<input type="file" name="upload" /><br />
+			<input type="submit" value="Upload" />			
+		</form>
+	</body>
+</html>
+<!--enctype就是encodetype翻译成中文就是编码类型的意思！multipart/form-data是指表单数据有多部分构成：既有文本数据，又有文件等二进制数据的意思-->
