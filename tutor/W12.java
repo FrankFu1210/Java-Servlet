@@ -35,7 +35,7 @@ public class W12 extends HttpServlet {
 		}
 		
 		//3.呈現VIEW，寫W13 servlet
-		request.setAttribute("view", "view1");//拉回CTL決定畫面的呈現，決定控制權，放上面原本的setAttribute("myCalc", myCalc)下面會因為myCalc初始值是null而一起被拋出!!!
+//		request.setAttribute("view", "view1");//拉回CTL決定畫面的呈現，決定控制權，放上面原本的setAttribute("myCalc", myCalc)下面會因為myCalc初始值是null而一起被拋出!!!
 		RequestDispatcher dispatcher = request.getRequestDispatcher("W13");
 		dispatcher.forward(request, response);
 	
@@ -50,10 +50,12 @@ public class W12 extends HttpServlet {
 
 //找出建構之程式結構的問題點!!!!! 有2個例外被拋出
 //java.lang.NumberFormatException: Cannot parse null string
-//1. 一開始沒有輸入x,y，值當然為null --> 繼續寫程式
+//1. 一開始沒有輸入x,y，該字串為null --> 之前已經有做try catch例外拋出，不影響可以繼續寫程式
 //java.lang.NullPointerException: Cannot invoke "tw.frank.utils.MyCalc.getX()" because "myCalc" is null
-//2. 為字串? --> 拋出例外 //寫到1207 104300
-//沒物件沒關係，畫面可以呈現
+//2. 沒有輸入x,y，"myCalc"也是null --> 到W13將MyCalc myCalc放入try catch中，拋出例外為空字串out.printf(web, "", "", "") //寫到1207 104300
+//沒物件沒關係，畫面調整後依然可以呈現
+
+//*W12網頁原始碼會以單行方式來呈現*因為readLine會把換列符號拿掉，造成原始碼一條線
 
 //java.io.FileNotFoundException: C:\Users\USER\eclipse-workspace\web\src\main\webapp\views\view1.html (系統找不到指定的路徑。)
 //因為學校電腦的路徑跟家裡電腦的不一樣啦...搞笑
@@ -61,8 +63,5 @@ public class W12 extends HttpServlet {
 /*Element.setAttribute()
 设置指定元素上的某个属性值。如果属性已经存在，则更新该值；否则，使用指定的名称和值添加一个新的属性。
 https://developer.mozilla.org/zh-CN/docs/Web/API/Element/setAttribute
-
- * 
 */
 
-//readLine會把換列符號拿掉，原始碼一條線
