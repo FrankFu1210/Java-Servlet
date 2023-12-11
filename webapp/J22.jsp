@@ -17,8 +17,14 @@
 		<title>複習99乘法表，並將網頁變成可自由輸入table格式! 1208 114358 教樂樂寫:)</title>
 	</head>
 	<body>
+	<script type="text/javascript">
+		function checkForm(){
+			
+			return true;
+		}
+	</script>
 	
-		<form>
+		<form onsubmit="return checkedForm();">
 			Start from: <input type = "number" name = "start">
 			<input type = "number" name = "rows">
 			x
@@ -58,4 +64,6 @@
 //頁面原始碼都可以由後端動態產生
 //接收參數，參數永遠是字串
 //HW: td BG color 黃粉紅 粉紅黃 馬賽克效果 CSS
+
+//onclick也可以return t/f
 %>
